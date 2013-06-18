@@ -1,33 +1,39 @@
-Vagrant LAMP
-============
+Vagrant OXID eShop CE
+=====================
 
-My default LAMP development stack configuration for Vagrant.
+OXID eShop Community Edition development configuration for Vagrant together with LAMP environment.
+
+Ver: 0.1
 
 Installation:
 -------------
 
-Install [vagrant](http://vagrantup.com/)
-
-    $ gem install vagrant
-
 Download and Install [VirtualBox](http://www.virtualbox.org/)
 
-Download a vagrant box (name of the box is supposed to be lucid32)
+Install [vagrant](http://vagrantup.com/)
 
-    $ vagrant box add lucid32 http://files.vagrantup.com/lucid32.box
+Register your vm to known host names by adding this line to your hosts file:
 
-Clone this repository
+    47.47.47.47 oxideshop local.dev
 
-Go to the repository folder and launch the box
+Clone this repository.
 
-    $ cd [repo]
+    $ git clone https://github.com/tomasliubinas/vagrant-oxideshop.git
+
+Go to the repository folder (the one where your Vagrantfile is located) and launch the box
+
+    $ cd [your vagrant dir]
     $ vagrant up
 
+That's it your OXID eShop is ready under http://oxideshop/ !    
+    
+     
 What's inside:
 --------------
 
 Installed software:
 
+* OXID eShop CE
 * Apache
 * MySQL
 * php
@@ -43,6 +49,45 @@ Installed software:
 Notes
 -----
 
+### VM
+
+By default vm is accessible from your machine on IP 47.47.47.47. You can access it over HTTP:
+
+http://oxideshop/ or http://local.dev/
+
+You can SSH to it over port 2222:
+
+    $ ssh vagrant@127.0.0.1:2222
+
+SSH login: vagrant:vagrant
+
+Or simply by the command in your vagrant dir:
+
+    $ vagrant ssh
+
+
+### OXID eShop CE
+
+OXID eShop is fully installed on:
+
+    http://oxideshop/
+
+Admin area:
+
+    http://oxideshop/admin/
+
+Admin login: admin:admin
+
+The OXID eShop source code is available on your host machine:
+    
+    [vagrant dir]/public/oxideshop/
+
+TODO:
+- Possibility to run Unit tests
+- Possibility to configure default shop language from the chef cookbook.
+- Possibility to configure default shop language from the chef cookbook.
+
+
 ### Apache virtual hosts
 
 You can add virtual hosts to apache by adding a file to the `data_bags/sites`
@@ -53,7 +98,7 @@ you may specify a docroot explicitly by adding a docroot key in the json file.
 
 phpMyAdmin is available on every domain. For example:
 
-    http://local.dev/phpmyadmin
+    http://oxideshop/phpmyadmin
 
 ### XDebug and webgrind
 
@@ -65,11 +110,11 @@ integrated debugger like Eclipse PDT, it will do this for you).
 XDebug is also configured to generate cachegrind profile output on demand by 
 adding GET variable XDEBUG_PROFILE to your URL. For example:
 
-    http://local.dev/index.php?XDEBUG_PROFILE
+    http://oxideshop/index.php?XDEBUG_PROFILE
 
 Webgrind is available on each domain. For example:
 
-    http://local.dev/webgrind
+    http://oxideshop/webgrind
 
 It looks for cachegrind files in the `/tmp` directory, where xdebug leaves them.
 
@@ -91,7 +136,7 @@ PHP is configured to send mail via MailCatcher, so you can see the emails that
 the vagrant box generates. The Web frontend for MailCatcher is running on port 
 1080 and also available on every domain:
 
-    http://local.dev:1080
+    http://oxideshop:1080
 
 ### Composer
 

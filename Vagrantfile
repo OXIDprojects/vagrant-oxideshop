@@ -21,10 +21,11 @@ Vagrant.configure("2") do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  config.vm.network :private_network, ip: "192.168.33.10"
+  config.vm.network :private_network, ip: "47.47.47.47"
 
   # Set share folder permissions to 777 so that apache can write files
   config.vm.synced_folder ".", "/vagrant", :extra => 'dmode=777,fmode=666'
+  config.vm.synced_folder "./public/oxideshop/", "/home/oxideshop/", :extra => 'dmode=777,fmode=666'
 
   # Provider-specific configuration so you can fine-tune VirtualBox for Vagrant.
   # These expose provider-specific options.
@@ -43,9 +44,9 @@ Vagrant.configure("2") do |config|
   
     chef.json.merge!({
       "mysql" => {
-        "server_root_password" => "vagrant",
-        "server_repl_password" => "vagrant",
-        "server_debian_password" => "vagrant",
+        "server_root_password" => "root",
+        "server_repl_password" => "root",
+        "server_debian_password" => "root",
         "bind_address" => "0.0.0.0"
       },
       "oh_my_zsh" => {
