@@ -1,0 +1,15 @@
+= DESCRIPTION:
+
+A cookbook installing OXID eShop CE
+
+= REQUIREMENTS:
+
+The cookbook requires and is a part of specially configured LAMP server.
+
+The full script provisioning whole VM could be cloned from the GitHub:
+http://github.com/tomasliubinas/vagrant-oxideshop
+
+= ATTRIBUTES: 
+
+= USAGE:
+
