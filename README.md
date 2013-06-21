@@ -1,18 +1,22 @@
 Vagrant OXID eShop CE
 =====================
 
-OXID eShop Community Edition development configuration for Vagrant together with LAMP environment.
+Ubuntu Virtual Machine containing OXID eShop CE, Unit Tests and LAMP development environment.
 
-Ver: 0.1
+Ver: 0.2
+
+
+Vagrant script is a script setting up the full VM on your host machine from the scratch. The guest VM is provisioned to the starting point every time you start the script.
+
 
 Installation:
 -------------
 
 Download and Install [VirtualBox](http://www.virtualbox.org/)
 
-Install [vagrant](http://vagrantup.com/)
+Install [Vagrant](http://vagrantup.com/)
 
-Register your vm to known host names by adding this line to your hosts file:
+By default your guest VM is configured to be accessed from your host machine on IP 47.47.47.47. Register your VM to known host names by adding this line to your hosts file:
 
     47.47.47.47 oxideshop local.dev
 
@@ -22,10 +26,10 @@ Clone this repository.
 
 Go to the repository folder (the one where your Vagrantfile is located) and launch the box
 
-    $ cd [your vagrant dir]
+    $ cd ./vagrant-oxideshop
     $ vagrant up
 
-That's it your OXID eShop is ready under http://oxideshop/ !    
+Wait for VM to boot and that's it - your OXID eShop is ready under `http://oxideshop/` !
     
      
 What's inside:
@@ -36,7 +40,7 @@ Installed software:
 * OXID eShop CE
 * Apache
 * MySQL
-* php
+* PHP 5.3
 * phpMyAdmin
 * Xdebug with Webgrind
 * zsh with [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
@@ -51,13 +55,13 @@ Notes
 
 ### VM
 
-By default vm is accessible from your machine on IP 47.47.47.47. You can access it over HTTP:
+By default VM is accessible from your machine on IP 47.47.47.47. You can access it over HTTP:
 
-http://oxideshop/ or http://local.dev/
+[http://oxideshop/](http://oxideshop/) or [http://local.dev/](http://local.dev/)
 
-You can SSH to it over port 2222:
+Or SSH over port 2222:
 
-    $ ssh vagrant@127.0.0.1:2222
+    $ ssh vagrant@47.47.47.47:2222
 
 SSH login: vagrant:vagrant
 
@@ -68,13 +72,9 @@ Or simply by the command in your vagrant dir:
 
 ### OXID eShop CE
 
-OXID eShop is fully installed on:
+OXID eShop is fully installed on [http://oxideshop/](http://oxideshop/)
 
-    http://oxideshop/
-
-Admin area:
-
-    http://oxideshop/admin/
+Admin area is accesible over  [http://oxideshop/admin/](http://oxideshop/admin/)
 
 Admin login: admin:admin
 
@@ -83,7 +83,7 @@ The OXID eShop source code is available on your host machine:
     [vagrant dir]/public/oxideshop/
 
 TODO:
-- Possibility to run Unit tests
+- Add the possibility to run Unit Tests
 - Possibility to configure default shop language from the chef cookbook.
 - Possibility to configure default shop language from the chef cookbook.
 
