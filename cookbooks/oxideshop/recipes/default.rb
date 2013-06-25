@@ -9,17 +9,17 @@ directory node[:oxideshop][:dir] do
   action :create
 end
 
+git "#{node[:oxideshop][:dir]}" do
+  repository "#{node[:oxideshop][:src]}"
+  action :sync
+end   
+
 directory "#{node[:oxideshop][:dir]}/log" do
   owner "vagrant"
   mode "0755"
   action :create
 end
     
-git "#{node[:oxideshop][:dir]}" do
-  repository "#{node[:oxideshop][:src]}"
-  action :sync
-end   
-
 bash "setup_oxideshop" do
   code <<-EOH
     mysql             -u#{node[:oxideshop][:mysql_username]} -p#{node[:oxideshop][:mysql_password]} -e "CREATE DATABASE oxideshop"
