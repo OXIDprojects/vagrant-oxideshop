@@ -10,8 +10,10 @@ directory node[:oxideshop][:dir] do
 end
 
 git "#{node[:oxideshop][:dir]}" do
-  repository "#{node[:oxideshop][:src]}"
-  action :sync
+  repository "#{node[:oxideshop][:git_repository]}"
+  reference "#{node[:oxideshop][:src]}"
+  user "vagrant"
+  action :checkout
 end   
 
 directory "#{node[:oxideshop][:dir]}/log" do
