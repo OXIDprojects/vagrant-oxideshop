@@ -1,6 +1,6 @@
 {
     "id": "oxideshop",
     "host": "oxideshop",
-    "docroot": "/home/oxideshop/source/",
+    "docroot": "/vagrant/public/oxideshop_ce/source/",
     "aliases": []
 }
