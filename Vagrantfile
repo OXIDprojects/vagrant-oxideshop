@@ -54,7 +54,7 @@ Vagrant.configure("2") do |config|
           {
             :login => 'vagrant',
             :theme => 'blinks',
-            :plugins => ['git', 'gem']
+            :plugins => ['gem']
           }
         ]
       }
