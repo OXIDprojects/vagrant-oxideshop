@@ -26,14 +26,14 @@ default[:oxideshop][:mysql_password]  =  "root"
 default[:oxideshop][:mysql_database]  =  "oxideshop"
 
 # source GIT repository
-default[:oxideshop][:git_repository]   = "https://github.com/oxid-esales/oxideshop_ce.git"
+default[:oxideshop][:git_repository]   = "https://github.com/tomasliubinas/oxideshop_ce.git"
 
 #leave the revision blank for the head checkout
 default[:oxideshop][:git_revision]   = "HEAD";
 
 
 # shop dir
-default[:oxideshop][:dir]       = "/home/oxideshop/"
+default[:oxideshop][:dir]       = "/vagrant/public/oxideshop_ce/"
 
 # shop URL
 default[:oxideshop][:url]  = "http://oxideshop/"

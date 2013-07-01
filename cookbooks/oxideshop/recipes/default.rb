@@ -2,19 +2,23 @@
 #  action :install
 #end
 
+git "#{node[:oxideshop][:dir]}" do
+  repository "#{node[:oxideshop][:git_repository]}"
+  reference "#{node[:oxideshop][:git_revision]}"
+  action :sync
+end   
+
+#bash "clone oxideshop" do
+#  code <<-EOH
+#    git clone "#{node[:oxideshop][:git_repository]}" "#{node[:oxideshop][:dir]}"
+#  EOH
+#end
 
 directory node[:oxideshop][:dir] do
   owner "vagrant"
   mode "0755"
   action :create
 end
-
-git "#{node[:oxideshop][:dir]}" do
-  repository "#{node[:oxideshop][:git_repository]}"
-  reference "#{node[:oxideshop][:src]}"
-  user "vagrant"
-  action :checkout
-end   
 
 directory "#{node[:oxideshop][:dir]}/log" do
   owner "vagrant"
