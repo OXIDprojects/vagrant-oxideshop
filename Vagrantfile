@@ -53,8 +53,8 @@ Vagrant.configure("2") do |config|
         :users => [
           {
             :login => 'vagrant',
-            :theme => 'blinks',
-            :plugins => ['gem']
+            :theme => 'jtriley',
+            :plugins => ['gem git']
           }
         ]
       }
