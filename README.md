@@ -4,8 +4,9 @@ Vagrant OXID eShop CE
 This is an Ubuntu Virtual Machine containing OXID eShop CE, Unit Tests and LAMP development environment.
 
 Maintainer: Tomas Liubinas
-License: Just use it
+
 Ver: 1.0 Beta
+
 
 Vagrant script is a script setting up the guest Virtual Machine on your host machine from the scratch. The guest VM is reset to the starting point every time you run the provisioning script.
 
@@ -30,7 +31,7 @@ Go to the repository dir (the one where your Vagrantfile is located) and launch 
     $ cd ./vagrant-oxideshop
     $ vagrant up
 
-Wait for VM to boot. After it's done your OXID eShop is ready under `http://oxideshop/` !    	 
+Wait for VM to boot. After it's done your OXID eShop is ready under `http://oxideshop/` !    	  	
 	 
 What's inside:
 --------------
