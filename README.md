@@ -120,14 +120,14 @@ phpMyAdmin is available on every domain. For example:
 
     http://oxideshop/phpmyadmin
 
-### XDebug and webgrind
+### Xdebug and webgrind
 
-XDebug is configured to connect back to your host machine on port 9000 when 
+Xdebug is configured to connect back to your host machine on port 9000 when 
 starting a debug session from a browser running on your host. A debug session is 
 started by appending GET variable XDEBUG_SESSION_START to the URL (if you use an 
 integrated debugger like Eclipse PDT, it will do this for you).
 
-XDebug is also configured to generate cachegrind profile output on demand by 
+Xdebug is also configured to generate cachegrind profile output on demand by 
 adding GET variable XDEBUG_PROFILE to your URL. For example:
 
     http://oxideshop/index.php?XDEBUG_PROFILE
@@ -138,7 +138,7 @@ Webgrind is available on each domain. For example:
 
 It looks for cachegrind files in the `/tmp` directory, where xdebug leaves them.
 
-**Note:** xdebug uses the default value for xdebug.profiler_output_name, which 
+**Note:** Xdebug uses the default value for xdebug.profiler_output_name, which 
 means the output filename only includes the process ID as a unique part. This 
 was done to prevent a real need to clean out cachgrind files. If you wish to 
 configure xdebug to always generate profiler output 
