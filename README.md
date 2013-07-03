@@ -62,7 +62,7 @@ You can access it over HTTP:
 
 [http://oxideshop/](http://oxideshop/) or [http://local.dev/](http://local.dev/)
 
-Or SSH:
+SSH:
 
     $ ssh vagrant@47.47.47.47
 
