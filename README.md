@@ -89,17 +89,22 @@ The OXID eShop source code is available on your host machine:
 SSH to VM
 
 Go to your tests dir
-    $cd /vagrant/public/oxideshop_ce/tests
+
+    $ cd /vagrant/public/oxideshop_ce/tests
     
 Run all eShop Unit Tests:
-    $bash runtests
+
+    $ bash runtests
+	
 ('bash' is a part of the command line example)
 
 Run single test case:
-    $bash runtests unit/core/oxarticlelistTest.php
+
+    $ bash runtests unit/core/oxarticlelistTest.php
     
 Run single test:
-    $bash runtests unit/core/oxarticlelistTest.php --filter testLoadArticleAccessoires
+
+    $ bash runtests unit/core/oxarticlelistTest.php --filter testLoadArticleAccessoires
 
 
 ### Apache virtual hosts
