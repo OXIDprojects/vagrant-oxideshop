@@ -10,6 +10,7 @@ include_recipe "php::module_mysql"
 include_recipe "apache2::mod_php5"
 include_recipe "composer"
 include_recipe "drush"
+include_recipe "phpunit"
 include_recipe "oxideshop"
 
 # Install packages
