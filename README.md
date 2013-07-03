@@ -89,7 +89,7 @@ The OXID eShop source code is available on the shared dir on your host machine:
 
 #### Running Unit Tests
 
-SSH to VM.
+Unit Tests are run on your guest VM.
 
 Go to your tests dir:
 
