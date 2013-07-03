@@ -3,7 +3,7 @@ Vagrant OXID eShop CE
 
 Ubuntu Virtual Machine containing OXID eShop CE, Unit Tests and LAMP development environment.
 
-Ver: 0.2
+Ver: 1.0 Beta
 
 
 Vagrant script is a script setting up the full VM on your host machine from the scratch. The guest VM is provisioned to the starting point every time you start the script.
@@ -81,11 +81,25 @@ Admin login: admin:admin
 The OXID eShop source code is available on your host machine:
     
     [vagrant dir]/public/oxideshop/
+    
+    
 
-TODO:
-- Add the possibility to run Unit Tests
-- Possibility to configure default shop language from the chef cookbook.
-- Possibility to configure default shop language from the chef cookbook.
+#### Running Unit Tests
+
+SSH to VM
+
+Go to your tests dir
+    $cd /vagrant/public/oxideshop_ce/tests
+    
+Run all eShop Unit Tests:
+    $bash runtests
+('bash' is a part of the command line example)
+
+Run single test case:
+    $bash runtests unit/core/oxarticlelistTest.php
+    
+Run single test:
+    $bash runtests unit/core/oxarticlelistTest.php --filter testLoadArticleAccessoires
 
 
 ### Apache virtual hosts

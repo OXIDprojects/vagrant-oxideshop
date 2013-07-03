@@ -41,7 +41,14 @@ template "config.inc.php" do
   owner "vagrant"
   group "vagrant"
   mode "0644"
-#  notifies :restart
+end
+
+template "runtests" do
+  path "#{node[:oxideshop][:dir]}/tests/runtests"
+  source "runtests.erb"
+  owner "vagrant"
+  group "vagrant"
+  mode "0755"
 end
 
 directory "#{node[:oxideshop][:dir]}/tmp" do
