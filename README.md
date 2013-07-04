@@ -91,6 +91,10 @@ Use `resetdb` script to reset the oxideshop DB to the default demo data:
 
     $ bash /vagrant/public/tools/resetdb
 
+Or you can always reset the full VM from your host machine:
+
+    $ vagrant provision
+
 #### Running Unit Tests
 
 Unit Tests are run on your guest VM.
