@@ -130,7 +130,7 @@ Webgrind is available on each domain. For example:
 
     http://oxideshop/webgrind
 
-It looks for cachegrind files in the `/tmp` directory, where xdebug leaves them.
+It looks for cachegrind files in the `/tmp` directory, where Xdebug leaves them.
 
 **Note:** xdebug uses the default value for xdebug.profiler_output_name, which 
 means the output filename only includes the process ID as a unique part. This 
