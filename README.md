@@ -1,12 +1,14 @@
 Vagrant OXID eShop CE
 =====================
 
-Ubuntu Virtual Machine containing OXID eShop CE, Unit Tests and LAMP development environment.
+This is an Ubuntu Virtual Machine containing OXID eShop CE, Unit Tests and LAMP development environment.
+
+Maintainer: Tomas Liubinas
 
 Ver: 1.0 Beta
 
 
-Vagrant script is a script setting up the full VM on your host machine from the scratch. The guest VM is provisioned to the starting point every time you start the script.
+Vagrant script is a script setting up the guest Virtual Machine on your host machine from the scratch. The guest VM is reset to the starting point every time you run the provisioning script.
 
 
 Installation:
@@ -14,24 +16,23 @@ Installation:
 
 Download and Install [VirtualBox](http://www.virtualbox.org/)
 
-Install [Vagrant](http://vagrantup.com/)
+Download and Install [Vagrant](http://vagrantup.com/)
 
-By default your guest VM is configured to be accessed from your host machine on IP 47.47.47.47. Register your VM to known host names by adding this line to your hosts file:
+By default your guest VM is configured to be accessed from your host machine on IP 47.47.47.47. Register your VM to known host names by adding the following line to your `hosts` file:
 
     47.47.47.47 oxideshop local.dev
 
-Clone this repository.
+Clone this repository:
 
     $ git clone https://github.com/tomasliubinas/vagrant-oxideshop.git
 
-Go to the repository folder (the one where your Vagrantfile is located) and launch the box
+Go to the repository dir (the one where your Vagrantfile is located) and launch the box:
 
     $ cd ./vagrant-oxideshop
     $ vagrant up
 
-Wait for VM to boot and that's it - your OXID eShop is ready under `http://oxideshop/` !
-    
-     
+Wait for VM to boot. After it's done your OXID eShop is ready under `http://oxideshop/` !    	  	
+	 
 What's inside:
 --------------
 
@@ -55,13 +56,15 @@ Notes
 
 ### VM
 
-By default VM is accessible from your machine on IP 47.47.47.47. You can access it over HTTP:
+By default VM is accessible from your machine on IP 47.47.47.47. 
+
+You can access it over HTTP:
 
 [http://oxideshop/](http://oxideshop/) or [http://local.dev/](http://local.dev/)
 
-Or SSH over port 2222:
+SSH:
 
-    $ ssh vagrant@47.47.47.47:2222
+    $ ssh vagrant@47.47.47.47
 
 SSH login: vagrant:vagrant
 
@@ -78,28 +81,31 @@ Admin area is accesible over  [http://oxideshop/admin/](http://oxideshop/admin/)
 
 Admin login: admin:admin
 
-The OXID eShop source code is available on your host machine:
+The OXID eShop source code is available on the shared dir on your host machine:
     
-    [vagrant dir]/public/oxideshop/
+    C:/[vagrant dir]/public/oxideshop/
     
     
 
 #### Running Unit Tests
 
-SSH to VM
+Unit Tests are run on your guest VM.
 
-Go to your tests dir
-    $cd /vagrant/public/oxideshop_ce/tests
+Go to your tests dir:
+
+    $ cd /vagrant/public/oxideshop_ce/tests
     
 Run all eShop Unit Tests:
-    $bash runtests
-('bash' is a part of the command line example)
 
-Run single test case:
-    $bash runtests unit/core/oxarticlelistTest.php
+    $ bash runtests
+	
+Run a single test case:
+
+    $ bash runtests unit/core/oxarticlelistTest.php
     
-Run single test:
-    $bash runtests unit/core/oxarticlelistTest.php --filter testLoadArticleAccessoires
+Run a single test:
+
+    $ bash runtests unit/core/oxarticlelistTest.php --filter testLoadArticleAccessoires
 
 
 ### Apache virtual hosts
@@ -114,14 +120,14 @@ phpMyAdmin is available on every domain. For example:
 
     http://oxideshop/phpmyadmin
 
-### XDebug and webgrind
+### Xdebug and webgrind
 
-XDebug is configured to connect back to your host machine on port 9000 when 
+Xdebug is configured to connect back to your host machine on port 9000 when 
 starting a debug session from a browser running on your host. A debug session is 
 started by appending GET variable XDEBUG_SESSION_START to the URL (if you use an 
 integrated debugger like Eclipse PDT, it will do this for you).
 
-XDebug is also configured to generate cachegrind profile output on demand by 
+Xdebug is also configured to generate cachegrind profile output on demand by 
 adding GET variable XDEBUG_PROFILE to your URL. For example:
 
     http://oxideshop/index.php?XDEBUG_PROFILE
@@ -132,7 +138,7 @@ Webgrind is available on each domain. For example:
 
 It looks for cachegrind files in the `/tmp` directory, where Xdebug leaves them.
 
-**Note:** xdebug uses the default value for xdebug.profiler_output_name, which 
+**Note:** Xdebug uses the default value for xdebug.profiler_output_name, which 
 means the output filename only includes the process ID as a unique part. This 
 was done to prevent a real need to clean out cachgrind files. If you wish to 
 configure xdebug to always generate profiler output 
