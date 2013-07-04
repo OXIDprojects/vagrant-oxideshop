@@ -85,7 +85,11 @@ The OXID eShop source code is available on the shared dir on your host machine:
     
     C:/[vagrant dir]/public/oxideshop/
     
-    
+#### DB Reset
+
+Use `dbreset` script in order to reset the oxideshop DB to the default demo data:
+
+    $ bash /vagrant/public/tools/resetdb
 
 #### Running Unit Tests
 
@@ -119,6 +123,8 @@ you may specify a docroot explicitly by adding a docroot key in the json file.
 phpMyAdmin is available on every domain. For example:
 
     http://oxideshop/phpmyadmin
+    
+Try root:root to login.
 
 ### Xdebug and webgrind
 

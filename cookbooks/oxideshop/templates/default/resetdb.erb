@@ -1,0 +1,4 @@
+#!/bin/bash
+
+mysql -D#{node[:oxideshop][:mysql_database]} -u#{node[:oxideshop][:mysql_username]} -p#{node[:oxideshop][:mysql_password]} <#{node[:oxideshop][:dir]}/source/setup/sql/database.sql
+mysql -D#{node[:oxideshop][:mysql_database]} -u#{node[:oxideshop][:mysql_username]} -p#{node[:oxideshop][:mysql_password]} <#{node[:oxideshop][:dir]}/source/setup/sql/demodata.sql

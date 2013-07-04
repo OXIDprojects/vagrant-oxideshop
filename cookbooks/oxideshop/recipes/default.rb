@@ -28,9 +28,9 @@ end
     
 bash "setup_oxideshop" do
   code <<-EOH
-    mysql             -u#{node[:oxideshop][:mysql_username]} -p#{node[:oxideshop][:mysql_password]} -e "CREATE DATABASE oxideshop"
-    mysql -Doxideshop -u#{node[:oxideshop][:mysql_username]} -p#{node[:oxideshop][:mysql_password]} <#{node[:oxideshop][:dir]}/source/setup/sql/database.sql
-    mysql -Doxideshop -u#{node[:oxideshop][:mysql_username]} -p#{node[:oxideshop][:mysql_password]} <#{node[:oxideshop][:dir]}/source/setup/sql/demodata.sql
+    mysql             -u#{node[:oxideshop][:mysql_username]} -p#{node[:oxideshop][:mysql_password]} -e "CREATE DATABASE #{node[:oxideshop][:mysql_database]} "
+    mysql -D#{node[:oxideshop][:mysql_database]} -u#{node[:oxideshop][:mysql_username]} -p#{node[:oxideshop][:mysql_password]} <#{node[:oxideshop][:dir]}/source/setup/sql/database.sql
+    mysql -D#{node[:oxideshop][:mysql_database]} -u#{node[:oxideshop][:mysql_username]} -p#{node[:oxideshop][:mysql_password]} <#{node[:oxideshop][:dir]}/source/setup/sql/demodata.sql
   EOH
   # creates "/usr/local/bin/redis-server"
 end
@@ -50,6 +50,16 @@ template "runtests" do
   group "vagrant"
   mode "0755"
 end
+
+
+template "resetdb" do
+  path "#{node[:oxideshop][:dir]}/../tools/resetdb"
+  source "resetdb.erb"
+  owner "vagrant"
+  group "vagrant"
+  mode "0755"
+end
+
 
 directory "#{node[:oxideshop][:dir]}/tmp" do
   mode 0755
