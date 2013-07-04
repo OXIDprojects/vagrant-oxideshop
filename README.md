@@ -87,7 +87,7 @@ The OXID eShop source code is available on the shared dir on your host machine:
     
 #### DB Reset
 
-Use `dbreset` script in order to reset the oxideshop DB to the default demo data:
+Use `resetdb` script to reset the oxideshop DB to the default demo data:
 
     $ bash /vagrant/public/tools/resetdb
 
