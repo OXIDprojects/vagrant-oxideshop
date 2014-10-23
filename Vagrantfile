@@ -24,7 +24,7 @@ Vagrant.configure("2") do |config|
   config.vm.network :private_network, ip: "47.47.47.47"
 
   # Set share folder permissions to 777 so that apache can write files
-  config.vm.synced_folder ".", "/vagrant", mount_options: ['dmode=777','fmode=666'], type: "rsync"
+  config.vm.synced_folder ".", "/vagrant", mount_options: ['dmode=777','fmode=666']
   # config.vm.synced_folder "./public/", "/home/public/", :extra => 'dmode=777,fmode=666'
 
   # Provider-specific configuration so you can fine-tune VirtualBox for Vagrant.
